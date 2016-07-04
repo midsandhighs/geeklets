@@ -1,9 +1,17 @@
 #!/bin/bash
 
-external=`dig +short myip.opendns.com @resolver1.opendns.com`
-wifi=`ipconfig getifaddr en0`
-wired=`ipconfig getifaddr en1`
+#external=`dig +short myip.opendns.com @resolver1.opendns.com`
+#wifi=`ipconfig getifaddr en0`
+#wired=`ipconfig getifaddr en1`
 
-echo "Your external IP is $external, and you are using the $wifi and $wired on your LAN"
+#echo -e "External:$external \n Wifi: $wifi  \n Wired:$wired "
+
+if [ -z 'ifconfig getifaddr en0' ] 
+then 
+        echo 'X.X.X.X' 
+else 
+        ipconfig getifaddr en0 
+fi
+
 
 
