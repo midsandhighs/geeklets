@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#external=`dig +short myip.opendns.com @resolver1.opendns.com`
-#wifi=`ipconfig getifaddr en0`
-#wired=`ipconfig getifaddr en1`
+external=`dig +short myip.opendns.com @resolver1.opendns.com`
+VPN=`ipconfig getifaddr utun3`
+wifi=`ipconfig getifaddr en0`
+wired=`ipconfig getifaddr en1`
 
-#echo -e "External:$external \n Wifi: $wifi  \n Wired:$wired "
+echo -e "External:$external \n VPN=$VPN \n Wifi: $wifi  \n Wired:$wired "
 
 if [ -z 'ifconfig getifaddr en0' ] 
 then 
