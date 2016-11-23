@@ -1,18 +1,9 @@
 #!/bin/bash
 
 external=`dig +short myip.opendns.com @resolver1.opendns.com`
-VPN=`ipconfig getifaddr utun3`
-wifi=`ipconfig getifaddr en0`
-wired=`ipconfig getifaddr en1`
+VPN=`ifconfig utun3 | grep "inet " | awk '{print $2}'`
+wifi=`ifconfig en0 | grep "inet " | awk '{print $2}'`
+wired=`ifconfig en14 | grep "inet " | awk '{print $2}'`
 
-echo -e "External:$external \n VPN=$VPN \n Wifi: $wifi  \n Wired:$wired "
-
-if [ -z 'ifconfig getifaddr en0' ] 
-then 
-        echo 'X.X.X.X' 
-else 
-        ipconfig getifaddr en0 
-fi
-
-
+echo -e " External:\n $external \n FAVPN - $VPN \n Wi-Fi - $wifi  \n Wired - $wired "
 
